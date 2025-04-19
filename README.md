@@ -20,11 +20,9 @@ I then decided to create separate services for configuration and networking.
     
 After this I decided to implement the SiteListViewModel:
     SiteListViewModels job is to load, sort and expose site data for SiteListView and SiteRowView.
-    
     It holds two arrays with site data: SiteCopy which stores data as it was received from NetworkingService and sites which stores sites
     with the ability to be sorted by the view model. This is so that when returning to a sort state of "None",
     I have a copy of the original sites to revert to.
-    
     Views can call "await vm.loadSites()" and "vm.toggleSort()" to receive and sort data from the view model.
     All data that viewmodels receive is published, such that when a change occurs, views are automatically re-rendered.
     
@@ -34,17 +32,13 @@ Finally I decided to implement both SiteListView and SiteRowView:
         It creates a SiteListViewModel state object to receive published data from the view model and display it in list form with SiteRowViews. 
         If data is still being pulled, I use a progress view to display a loading wheel and 
         if the is an errorMessage is not nil (published data from view model), I display an error.
-        
         For sorting, the list view reads the published sort state title to display the current sorting state. If the toolbar button is pressed,
         I call "vm.toggleSort()" so that the viewmodel resorts the data and changes the published data, forcing a re-render with new data.
-        
         Finally I set onTapGesture to call back to open() where the sites url is read and the app redirects to a Safari window presenting
         the requested site.
-
     **SiteRowView:**
         The job of this view is to represent data from the Site model. Each image URL is loaded into an SDWebImage where I use AsyncImage's
         phase matching to define how images should be rendered depending on results from SDWebImage. 
-        
         I then present the the name and description as set in each Site object. 
         
 After implementing every component in this app, I moved on to testing. I implemented tests for SiteModel and NetworkingService.
