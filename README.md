@@ -1,5 +1,7 @@
 # Aleksandar Yordanov - ThousandEyes Take Home Project Report:
 
+## Note: I had to upload the xcodeproj file as a zip, please unzip and place in base directory.
+
 ## How I Approached This Task:
 First, I chose to implement this app in Swift for iOS. This is as I already had all of the tooling installed (Xcode, iOS 18.1)
 and I wanted to personally refresh my Swift knowledge and demonstrate that I can adapt to new technologies quickly and easily. 
